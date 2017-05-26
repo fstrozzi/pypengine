@@ -1,19 +1,14 @@
 =========
-pypengine
+Pypengine
 =========
 
 
-Add a short description here!
+A Pipengine rewrite in Python, with built-in Cloud support
 
 
 Description
 ===========
 
-A LONGER DESCRIPTION OF YOUR PROJECT GOES HERE...
+Original Pipengine docs: https://github.com/fstrozzi/bioruby-pipengine
 
 
-Note
-====
-
-This project has been set up using PyScaffold 2.5.6. For details and usage
-information on PyScaffold see http://pyscaffold.readthedocs.org/.
