@@ -1,0 +1,12 @@
+resources:
+  index: ./
+  # genome: ./
+  output: ./test
+
+samples:
+  Group1:
+    sampleA: ./sampleA
+    sampleB: ./sampleB
+  Group2:
+    sampleC: ./sampleC
+    sampleD: ./sampleD
