@@ -45,7 +45,8 @@ def main():
         _logger.error("Samples YAML file is missing required keys. Please check that 'resources',and 'samples' keys are present")
         sys.exit(1)
     else:
-        core.run_job(pipeline,samples,args)
+        job = core.job_template(pipeline,samples,args)
+        
 
 if __name__ == "__main__":
     main()
