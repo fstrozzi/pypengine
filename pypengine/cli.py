@@ -8,14 +8,13 @@ logging.basicConfig(level=logging.DEBUG)
 
 from pypengine import __version__
 from pypengine import utils
-from pypengine.job import Job
+from pypengine import core
 
 __author__ = "Francesco Strozzi"
 __copyright__ = "Francesco Strozzi"
 __license__ = "MIT"
 
 _logger = logging.getLogger(__name__)
-
 
 
 def parse_args():
@@ -37,10 +36,16 @@ def parse_args():
 
 def main():
     args = parse_args()
-    pipeline = parser.parse_yaml(args.pipeline)
-    samples = parser.parse_yaml(args.samples_file)
-    print(samples)
-    print(pipeline)
+    pipeline = utils.parse_yaml(args.pipeline)
+    samples = utils.parse_yaml(args.samples_file)
+    if not all(x in pipeline.keys() for x in ["pipeline","resources","steps"]):
+        _logger.error("Pipeline YAML file is missing required keys. Please check that 'pipeline','resources' and 'steps' keys are present")
+        sys.exit(1)
+    elif not all(x in samples.keys() for x in ["resources","samples"]):
+        _logger.error("Samples YAML file is missing required keys. Please check that 'resources',and 'samples' keys are present")
+        sys.exit(1)
+    else:
+        core.run_job(pipeline,samples,args)
 
 if __name__ == "__main__":
     main()

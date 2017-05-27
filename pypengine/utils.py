@@ -9,7 +9,6 @@ def extract_variables(line):
     variables = []
     for match in re.finditer('<(\S+)>',text):
         variables.append(match.group(0).replace(">",'').replace('<',''))
-    return variables
+        return variables
 
-def substitute_variable(variable,steps,resources):
-    
+#def substitute_variable(variable,steps,resources):
